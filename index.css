@@ -9,41 +9,63 @@ body {
    display: flex;
    justify-content: center;
 }
-
 header {
-   position: absolute;
+   display: none;
 }
-
 main {
    position: absolute;
    top: 50%;
    transform: translate(0, -50%);  
    text-align: center; 
+   align-items: center;
 }
 
 #search-bar {
-   border: 1px solid white;
-   padding: 5px 0;
    border-radius: 20px;
+   height: 30px;
+   align-items: center;
+   width: 400px;
+   min-width: 200px;
 }
 
-#search-bar:hover {
+#search-bar img {
+   position: absolute;
+   width: 20px;
+   height: 20px;
+   margin-top: 1.3%;
+}
+
+img[alt=search] {
+   margin-left: 5px;
+}
+
+img[alt=keyboard] {
+   margin-left: 85%;
+}
+
+img[alt=voice-search] {
+   margin-left: 93%;
+}
+
+input[type=text] {
+   width: 100%;
+   height: 100%;
+   padding-left: 35px;
+   padding-right: 65px;
+   outline-style: none; 
+   border: 1px solid white;
+   border-radius: 20px;
+   background-color: rgb(29, 26, 26);
+   color: white;
+}
+
+input[type=text]:hover, input[type=text]:focus {
    border: 1px solid rgb(46, 45, 45);
    background-color: rgb(46, 45, 45);
    box-shadow: 0 0 15px rgba(0, 0, 0, 0.555);
 }
 
-input[type=text] {
-   width: 100%;
-   min-height: 100%;
-   background-color: rgb(29, 26, 26);
-   border: none;
-   color: white;
-   outline-style: none; 
-}
-input[type=text]:hover {
-   background-color: rgb(46, 45, 45);
-}
+
 
 
 

@@ -19,8 +19,11 @@ main {
    text-align: center; 
    align-items: center;
 }
-
+img[alt=Google] {
+   width: 200px;
+}
 #search-bar {
+   margin-top: 20px;
    border-radius: 20px;
    height: 30px;
    align-items: center;

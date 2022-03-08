@@ -1,3 +1,4 @@
+
 const localHistory = localStorage.getItem("history")
 const inputEl = document.getElementById("input-el")
 const historyEl = document.querySelector(".history")
@@ -38,7 +39,7 @@ inputEl.addEventListener("focus", function(){
 })
 
 inputEl.addEventListener("blur", function(){
-   historyEl.classList.remove("active")
+    setTimeout(100, historyEl.classList.toggle("active"))
 })
 
 function formatando(text) {

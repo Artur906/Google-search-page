@@ -2,6 +2,8 @@
    margin: 0;
    padding: 0;
    box-sizing: border-box;
+   font-family: Arial, Helvetica, sans-serif;
+   
 }
 
 body {
@@ -64,11 +66,39 @@ input[type=text] {
 
 input[type=text]:hover, input[type=text]:focus {
    border: 1px solid rgb(46, 45, 45);
+   border-radius: 20px;
    background-color: rgb(46, 45, 45);
    box-shadow: 0 0 15px rgba(0, 0, 0, 0.555);
 }
 
+input[type=text]:focus {
+   border-radius: 20px 20px 0 0;
+}
 
+
+.history {
+   display: none;
+}
+
+.active {
+   box-shadow: 0 0 15px rgba(0, 0, 0, 0.555);
+   display: block;
+   background-color: rgb(46, 45, 45);
+   list-style: none;
+   text-align: left;
+   padding: 2px 35px;
+   font-size: 13px;
+   color: white;
+   border-radius: 0 0 20px 20px;
+}
+
+.active li {
+   margin: 5px 0; 
+   cursor: pointer;
+}
+.active ul {
+   border-top: 1px solid white;
+}
 
 
 

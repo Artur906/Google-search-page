@@ -38,7 +38,7 @@ inputEl.addEventListener("focus", function(){
    historyEl.classList.add("active")
 })
 
-inputEl.addEventListener("blur", function(){
+inputEl.addEventListener("", function(){
     setTimeout(100, historyEl.classList.toggle("active"))
 })
 

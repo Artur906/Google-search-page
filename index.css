@@ -82,7 +82,9 @@ input[type=text]:focus {
 
 .active {
    box-shadow: 0 0 15px rgba(0, 0, 0, 0.555);
-   display: block;
+   display: flex;
+   border-top: 1px solid white;
+   flex-direction: column-reverse;
    background-color: rgb(46, 45, 45);
    list-style: none;
    text-align: left;
@@ -96,9 +98,7 @@ input[type=text]:focus {
    margin: 5px 0; 
    cursor: pointer;
 }
-.active ul {
-   border-top: 1px solid white;
-}
+
 
 
 

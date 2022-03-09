@@ -8,26 +8,16 @@
    <title>Google Page</title>
 </head>
 <body>
-   <header> 
-      <a href="#">Gmail</a>
-      <a href="#">Imagens</a>
-      <a href="#">
-         <img src="#" alt="Google aps">
-      </a>
-      <a href="#">
-         <img src="#" alt="User-profile">
-      </a>
-   </header>
    <main>
       <img src="images/google-logo.png" alt="Google">
       <div id="search-bar">
-         <img src="images/search.png" alt="search">
-         <a href="#"><img src="images/keyboard.png" alt="keyboard"></a>
-         <a href="#"><img src="images/micro.png" alt="voice-search"></a>
+         <img src="images/search.png" alt="lupa">
+         <img src="images/micro.png" onclick="search()" alt="search">
          <input type="text" name="search" id="input-el" autocomplete="off">
       </div>
       <div class="history">
-         
+         <ul id="links"></ul>
+         <ul id="delete-btn"></ul>
       </div>
    </main>
    

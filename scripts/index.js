@@ -1,5 +1,7 @@
 
 const localHistory = localStorage.getItem("history")
+const linksHistory = document.getElementById("links")
+const deleteBtns = document.getElementById("delete-btn")
 const inputEl = document.getElementById("input-el")
 const historyEl = document.querySelector(".history")
 let history = []
@@ -10,12 +12,64 @@ if (localHistory){
 
 inputEl.addEventListener("keydown", function(e){
    if(e.code === "Enter") {
-      let url = inputEl.value
-      history.push(url)
-      localStorage.setItem("history", JSON.stringify(history))
-      redirect(url)
+      search()
    }
 })
+
+inputEl.addEventListener("focus", function(){
+   renderHistory()
+
+   if(history.length === 0){
+      inputEl.classList.remove("active")
+   } else {
+      inputEl.classList.add("active")
+   }
+   historyEl.classList.toggle("active")
+})
+
+inputEl.addEventListener("blur", function(){
+   historyEl.classList.toggle("active")
+   inputEl.classList.toggle("active")
+})
+
+function renderHistory(){
+
+   linksHistory.innerHTML = ""
+   for(let i = 0; i < history.length; i++){
+      linksHistory.innerHTML += `
+      <li class="history-item" onclick="redirect('${history[i]}')">
+         ${history[i]}
+      </li>`
+   }
+      
+   deleteBtns.innerHTML = ""
+   for(let i = 0; i < history.length; i++){
+      deleteBtns.innerHTML += `
+         <li>
+            <button onclick="apaga(${i})">delete</button>
+         </li>`
+   }         
+}
+
+function apaga(index){
+   history.splice(index, 1)
+   console.log(history)
+   renderHistory()
+}
+
+
+function search(){
+   let url = getInput()
+   if(url != ""){
+      saveInHistory(url)
+      redirect(url)
+   }
+}
+
+function formatando(text) {
+   text = text.replace(/ /g, "+")
+   return text
+}
 
 function redirect(url) {
    let pesquisa = "https://www.google.com/search?q=";
@@ -25,24 +79,11 @@ function redirect(url) {
    window.location.href = pesquisa
 }
 
-inputEl.addEventListener("focus", function(){
-   historyEl.innerHTML = `<ul>`
+function getInput() {
+   return inputEl.value
+}
 
-   for(let i = 0; i < history.length; i++)
-      historyEl.innerHTML += `
-      <li class="history-item" onclick="redirect('${history[i]}')">
-         ${history[i]}
-      </li>`
-
-   historyEl.innerHTML += `</ul>`
-   historyEl.classList.add("active")
-})
-
-inputEl.addEventListener("", function(){
-    setTimeout(100, historyEl.classList.toggle("active"))
-})
-
-function formatando(text) {
-   text = text.replace(/ /g, "+")
-   return text
+function saveInHistory(item) {
+   history.unshift(item)
+   localStorage.setItem("history", JSON.stringify(history))
 }

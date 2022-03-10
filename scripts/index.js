@@ -27,6 +27,7 @@ function renderHistory(){
       if (i < 10) {
          historyEl.innerHTML += `
          <div class="link">
+            <img src="images/clock.svg" alt="clock">
             <p onclick="redirect('${history[i]}')">${history[i]}</p>
             <button onclick="apaga(${i})">delete</button>
          </div>

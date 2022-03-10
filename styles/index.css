@@ -77,9 +77,11 @@ main > img {
    color: white;
    padding: 5px 20px;
    text-align: justify;
+   word-wrap: break-word;
 }
 .history .link p{
    cursor: pointer;
+   max-width: 90%;
 }
 .history .link button{
    background-color: transparent;

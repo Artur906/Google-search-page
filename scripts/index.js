@@ -63,7 +63,7 @@ function search(){
    if(url != ""){
       saveInHistory(url)
       redirect(url)
-   }
+   } 
 }
 
 function formatando(text) {
@@ -80,7 +80,7 @@ function redirect(url) {
 }
 
 function getInput() {
-   return inputEl.value
+   return inputEl.value.trim()
 }
 
 function saveInHistory(item) {

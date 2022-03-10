@@ -26,7 +26,7 @@ function renderHistory(){
    for(let i = 0; i < history.length; i++){
       historyEl.innerHTML += `
       <div class="link">
-         <p>${history[i]}</p>
+         <p onclick="redirect('${history[i]}')">${history[i]}</p>
          <button onclick="apaga(${i})">delete</button>
       </div>
       `

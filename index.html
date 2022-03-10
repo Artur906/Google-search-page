@@ -10,18 +10,20 @@
 <body>
    <main>
       <img src="images/google-logo.svg" alt="Google">
-      <div id="search-bar">
-         <img src="images/search.svg" alt="lupa">
-         <img src="images/arrow.svg" onclick="search()" alt="search">
-         <input type="text" name="search" id="input-el" autocomplete="off">
-      </div>
-      <div class="history">
-         <ul id="links"></ul>
-         <ul id="delete-btn"></ul>
+
+      <div class="search-content"> 
+         <div class="search-bar">
+            <img src="images/search.svg" alt="lupa">
+            <input type="text" name="search" id="input-el" autocomplete="off">
+            <img src="images/arrow.svg" onclick="search()" alt="search">
+         </div>
+         <div class="history">
+            
+         </div>   
       </div>
    </main>
    
    
-   <script async src="scripts/index.js"></script>
+   <script src="scripts/index.js"></script>
 </body>
 </html>

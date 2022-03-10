@@ -1,9 +1,8 @@
 
 const localHistory = localStorage.getItem("history")
-const linksHistory = document.getElementById("links")
-const deleteBtns = document.getElementById("delete-btn")
-const inputEl = document.getElementById("input-el")
 const historyEl = document.querySelector(".history")
+const inputEl = document.getElementById("input-el")
+const searchContentEl = document.querySelector(".search-content")
 let history = []
 
 if (localHistory){
@@ -17,43 +16,27 @@ inputEl.addEventListener("keydown", function(e){
 })
 
 inputEl.addEventListener("focus", function(){
+   searchContentEl.classList.add("active")
    renderHistory()
 
-   if(history.length === 0){
-      inputEl.classList.remove("active")
-   } else {
-      inputEl.classList.add("active")
-   }
-   historyEl.classList.toggle("active")
-})
-
-inputEl.addEventListener("blur", function(){
-   historyEl.classList.toggle("active")
-   inputEl.classList.toggle("active")
 })
 
 function renderHistory(){
-
-   linksHistory.innerHTML = ""
+   historyEl.innerHTML = ""
    for(let i = 0; i < history.length; i++){
-      linksHistory.innerHTML += `
-      <li class="history-item" onclick="redirect('${history[i]}')">
-         ${history[i]}
-      </li>`
-   }
-      
-   deleteBtns.innerHTML = ""
-   for(let i = 0; i < history.length; i++){
-      deleteBtns.innerHTML += `
-         <li>
-            <button onclick="apaga(${i})">delete</button>
-         </li>`
-   }         
+      historyEl.innerHTML += `
+      <div class="link">
+         <p>${history[i]}</p>
+         <button onclick="apaga(${i})">delete</button>
+      </div>
+      `
+   }          
 }
 
 function apaga(index){
    history.splice(index, 1)
    console.log(history)
+   saveInHistory(null, false)
    renderHistory()
 }
 
@@ -83,7 +66,9 @@ function getInput() {
    return inputEl.value.trim()
 }
 
-function saveInHistory(item) {
-   history.unshift(item)
+function saveInHistory(item, add=true) {
+   if (add === true) {
+      history.unshift(item)
+   }
    localStorage.setItem("history", JSON.stringify(history))
 }

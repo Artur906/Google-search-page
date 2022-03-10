@@ -44,6 +44,12 @@ main > img {
    max-height: 600px;
 }
 
+.search-content:hover{
+   border: 1px solid rgb(49, 47, 47);
+   background-color: rgb(49, 47, 47);
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.596);
+}
+
 .search-bar {
    width: 100%;
    display: flex;

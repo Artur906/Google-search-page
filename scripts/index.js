@@ -24,12 +24,14 @@ inputEl.addEventListener("focus", function(){
 function renderHistory(){
    historyEl.innerHTML = ""
    for(let i = 0; i < history.length; i++){
-      historyEl.innerHTML += `
-      <div class="link">
-         <p onclick="redirect('${history[i]}')">${history[i]}</p>
-         <button onclick="apaga(${i})">delete</button>
-      </div>
-      `
+      if (i < 10) {
+         historyEl.innerHTML += `
+         <div class="link">
+            <p onclick="redirect('${history[i]}')">${history[i]}</p>
+            <button onclick="apaga(${i})">delete</button>
+         </div>
+         `
+      }
    }          
 }
 

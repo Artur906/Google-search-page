@@ -24,12 +24,12 @@ main > img {
 .search-content {
    width: 80%;
    max-width: 600px;
-   height: 40px;
    background-color: transparent;
    border: 1px solid white;
    margin: 20px auto;
    border-radius: 20px;
    align-items: center;
+   height: auto;
 }
 
 .search-content img{
@@ -40,7 +40,6 @@ main > img {
    border: 1px solid rgb(49, 47, 47);
    background-color: rgb(49, 47, 47);
    box-shadow: 0 0 10px rgba(0, 0, 0, 0.596);
-   height: auto;
    max-height: 600px;
 }
 

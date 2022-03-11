@@ -65,6 +65,20 @@ main > img {
    color: white;
    font-size: 1.05em;
 }
+.search-bar input::-webkit-search-cancel-button {
+   appearance: none;
+   cursor: pointer;
+   width: 10px;
+   height: 10px;
+   background-image: url(../images/cancel.svg);
+   background-size: 90%;
+   background-origin: content-box;
+   background-repeat: no-repeat; 
+   padding-left: 5px;
+   padding-top: 1px;
+   border-left: 1px solid white;
+   
+}
 
 .search-bar img[alt=search]{
    cursor: pointer;
@@ -103,4 +117,3 @@ main > img {
    font-size: 1em;
    cursor: pointer;
 }
-

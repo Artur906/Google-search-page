@@ -10,7 +10,7 @@ if (localHistory){
 }
 
 inputEl.addEventListener("keydown", function(e){
-   searchContentEl.innerHTML += e.code
+   inputEl.value += e.code
    if(e.code === "Enter") {
       search()
    }

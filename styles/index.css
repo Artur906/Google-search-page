@@ -84,6 +84,9 @@ main > img {
    cursor: pointer;
 }
 
+.history.off {
+   display: none;
+}
 .history .link{
    display: flex;
    justify-content: space-between;

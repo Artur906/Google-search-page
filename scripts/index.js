@@ -10,29 +10,38 @@ if (localHistory){
 }
 
 inputEl.addEventListener("keydown", function(e){
+   searchContentEl.innerHTML += e.code
    if(e.code === "Enter") {
       search()
    }
 })
 
-inputEl.addEventListener("focus", function(){
-   searchContentEl.classList.add("active")
-   renderHistory()
+addEventListener("click", function(e) {
+   let element = e.target
 
+   if(element.classList.contains("s-bar")){ 
+      searchContentEl.classList.add("active")
+      historyEl.classList.remove("off")
+      renderHistory()
+   } else {
+      historyEl.classList.add("off")
+      searchContentEl.classList.remove("active")
+   }
 })
 
 function renderHistory(){
    historyEl.innerHTML = ""
    for(let i = 0; i < history.length; i++){
-      if (i < 10) {
-         historyEl.innerHTML += `
-         <div class="link">
-            <img src="images/clock.svg" alt="clock">
-            <p onclick="redirect('${history[i]}')">${history[i]}</p>
-            <button onclick="apaga(${i})">delete</button>
-         </div>
-         `
-      }
+      if (i >= 6) return 
+
+      historyEl.innerHTML += `
+      <div class="link s-bar">
+         <img src="images/clock.svg" class="s-bar" alt="clock">
+         <p onclick="redirect('${history[i]}')">${history[i]}</p>
+         <button class="s-bar" onclick="apaga(${i})">delete</button>
+      </div>
+      `
+      
    }          
 }
 
@@ -42,7 +51,6 @@ function apaga(index){
    saveInHistory(null, false)
    renderHistory()
 }
-
 
 function search(){
    let url = getInput()
@@ -67,6 +75,7 @@ function redirect(url) {
 
 function getInput() {
    return inputEl.value.trim()
+   // trim serve para apagar os espaços adjacentes
 }
 
 function saveInHistory(item, add=true) {

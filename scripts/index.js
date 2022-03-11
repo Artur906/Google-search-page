@@ -1,4 +1,3 @@
-
 const localHistory = localStorage.getItem("history")
 const historyEl = document.querySelector(".history")
 const inputEl = document.getElementById("input-el")
@@ -10,7 +9,6 @@ if (localHistory){
 }
 
 inputEl.addEventListener("keydown", function(e){
-   inputEl.value += e.code
    if(e.code === "Enter") {
       search()
    }
@@ -40,14 +38,12 @@ function renderHistory(){
          <p onclick="redirect('${history[i]}')">${history[i]}</p>
          <button class="s-bar" onclick="apaga(${i})">delete</button>
       </div>
-      `
-      
+      ` 
    }          
 }
 
 function apaga(index){
    history.splice(index, 1)
-   console.log(history)
    saveInHistory(null, false)
    renderHistory()
 }

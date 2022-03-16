@@ -38,10 +38,13 @@ function renderHistory(){
       historyEl.innerHTML += `
       <div class="link s-bar">
          <img src="images/clock.svg" class="s-bar" alt="clock">
-         <p onclick="redirect('${history[i]}')">${history[i]}</p>
+         <p onclick="redirect('${history[i]}')" id="p${i}"></p>
          <button class="s-bar" onclick="apaga(${i})">delete</button>
       </div>
       ` 
+      // para evitar que o usuário consiga inserir código no meu HTML
+      let pEl = document.getElementById(`p${i}`)
+      pEl.textContent = history[i]
    }          
 }
 
